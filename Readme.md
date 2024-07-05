@@ -9,7 +9,10 @@ This project contains two main components: a Kafka producer script and a PyFlink
 
 2. **parallelism.py**
    - This script sets up a PyFlink job to consume messages from the `pwdtopic` Kafka topic, calculate the sum and average of the integers, and print the results.
-
+## Input from kafka producer
+```
+>[1,2,3,4]
+```
 ## Output
 
 The output of the PyFlink job will look like this:
