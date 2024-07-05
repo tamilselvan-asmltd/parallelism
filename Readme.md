@@ -17,14 +17,16 @@ This project contains two main components: a Kafka producer script and a PyFlink
 
 The output of the PyFlink job will look like this:
 ```
-Final Average: 1.0
-Final Average: 1.5
-Final Average: 2.0
-Final Average: 2.5
-Final Sum: 1
-Final Sum: 3
-Final Sum: 6
-Final Sum: 10
+Average: 1.0
+Average: 1.5
+Average: 2.0
+Average: 2.5
+
+
+Sum: 1
+Sum: 3
+Sum: 6
+Sum: 10
 ```
 
 ## Requirements
