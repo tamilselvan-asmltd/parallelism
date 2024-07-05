@@ -1,28 +1,63 @@
+# Kafka Producer and PyFlink Parallelism Example
 
-# Kafka Producer and PyFlink Stream Processing Example
+This project contains two main components: a Kafka producer script and a PyFlink parallelism script. The Kafka producer generates random lists of integers and sends them to a Kafka topic, while the PyFlink script consumes the messages from the Kafka topic and performs sum and average calculations in parallel.
 
-This project demonstrates how to produce messages to a Kafka topic using a Python Kafka Producer and process these messages using PyFlink for parallel stream processing. The setup includes two main scripts:
+## Files
 
-1. `list_input_producer.py`: Produces random lists of integers to a Kafka topic.
-2. `parallelism.py`: Consumes messages from the Kafka topic, calculates the sum and average of the integers in the lists using PyFlink, and prints the results.
+1. **list_input_producer.py**
+   - This script generates random lists of integers and produces them to a Kafka topic named `pwdtopic`.
 
-## Prerequisites
+2. **parallelism.py**
+   - This script sets up a PyFlink job to consume messages from the `pwdtopic` Kafka topic, calculate the sum and average of the integers, and print the results.
 
-- Python 3.7+
-- Apache Kafka
+## Output
+
+The output of the PyFlink job will look like this:
+
+Final Sum: 1
+Final Sum: 3
+Final Sum: 6
+Final Sum: 10
+Final Sum: 15
+Final Average: 1.0
+Final Average: 1.5
+Final Average: 2.0
+Final Average: 2.5
+Final Average: 3.0
+
+
+## Requirements
+
+- Kafka
+- Python
 - Confluent Kafka Python client
-- Apache Flink
 - PyFlink
+- flink-sql-connector-kafka-1.17.1.jar
 
-## Getting Started
+## Setup and Execution
 
-### Kafka Producer
+1. **Kafka Setup**
+   - Ensure Kafka is running on your local machine.
 
-The `list_input_producer.py` script connects to a Kafka broker, generates random lists of integers, and produces them to a Kafka topic named `pwdtopic`.
+2. **Producer Setup**
+   - Install the Confluent Kafka Python client:
+     ```
+     pip install confluent_kafka
+     ```
+   - Run the Kafka producer script:
+     ```
+     python list_input_producer.py
+     ```
 
-#### Installation
+3. **Flink Setup**
+   - Download and place the `flink-sql-connector-kafka-1.17.1.jar` file in your desired directory.
+   - Install PyFlink:
+     ```
+     pip install apache-flink
+     ```
+   - Run the Flink parallelism script:
+     ```
+     python parallelism.py
+     ```
 
-1. Install the required Python package:
-
-   ```sh
-   pip install confluent_kafka
+Ensure you have all dependencies installed and properly configured to successfully run the scripts and observe the output.
